@@ -84,7 +84,3 @@
 
 
 @endsection
-
-@section('script')
-	{!! HTML::script( asset('assets/user/js/user_main.js') ) !!} 
-@endsection

@@ -31,13 +31,13 @@ class UsersController extends BaseController
     {
         parent::__construct($langRepo);
        // $this->middleware('auth', ['except' => ['getLogin', 'postLogin','getLogout']]);
-       // $this->middleware('language');
+        $this->middleware('language');
 
     }
 
     public function getStartAngular()
     {
-        return view('layout');
+        return view('user.login-registration');
     }
 
     public function postAddMessage(request $request)
@@ -134,7 +134,7 @@ class UsersController extends BaseController
     public function getFacebookCallback(UserInterface $userRepo)
     {
         $user = Socialite::with('facebook')->user();
-
+        dd($user);
         $id = $user->id;
         $token = $user->token;
         $fullName = $user->getName();
